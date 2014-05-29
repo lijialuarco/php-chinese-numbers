@@ -58,10 +58,10 @@ require_once 'src/pffygo.php';
 # [88|0,0,0,8,8]
 echo (new Abacus(88));
 
-# 八十八万八千八百八十八
+# 零
 echo (new ChineseInteger());
 
-# 八十八万八千八百八十八
+# 八千八百八十八
 echo (new ChineseInteger(8888));
 
 # 八十八万八千八百八十八
