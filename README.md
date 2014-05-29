@@ -75,21 +75,7 @@ echo (new ChinesePercent(88));
 
 # 八五八八五八
 echo (new ChineseDigits(858858));
-
 ?>
-
-<!-- 
-CSS for smooth, nice-looking Chinese characters
-https://gist.github.com/pffy/54bd877858f009292e4a
- -->
-<style>
-body {
-  text-align: center;
-  font-size: 50pt;
-  font-family: "WenQuanYi Micro Hei", "UKai", "STKaiTi", "KaiTi";  
-}
-</style>
-
 ```
 
 ## LICENSE
