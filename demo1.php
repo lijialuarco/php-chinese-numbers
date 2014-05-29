@@ -39,6 +39,8 @@ echo nl2br(PHP_EOL);
 # 负八百五十八点八八五五八八
 echo (new ChineseDecimal(-858, 885588));
 echo nl2br(PHP_EOL);
+
+
 ?>
 
 <!-- 
