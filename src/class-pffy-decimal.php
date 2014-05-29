@@ -30,7 +30,7 @@
 require_once 'class-pffy-integer.php';
 
 /**
- * class-pffy-fraction.php - This class implements the ChineseFraction object.
+ * class-pffy-decimal.php - This class implements the ChineseDecimal object.
  *
  * @license http://unlicense.org/ The Unlicense
  * @version 8.1
@@ -38,35 +38,36 @@ require_once 'class-pffy-integer.php';
  * @author The Pffy Authors
  *        
  */
-final class ChineseFraction {
+final class ChineseDecimal {
   
-  // fraction delimiter
-  const JTZ_FENZHI = "分之";
-  const PINYIN_FENZHI = "fēn zhī";
-  
+  // (decimal) dot delimiter
+  const JTZ_DIAN = "点";
+  const PINYIN_DIAN = "diăn";
+
   // negative prefix
   const JTZ_FU = "负";
-  const PINYIN_FU = "fù";
+  const PINYIN_FU = "fù";  
   
   // output
   private $_chinese = "";
   private $_pinyin = "";
   
   // input
-  private $_numerator = 0;
-  private $_denominator = 0;
+  private $_integerPart = 0;
+  private $_fractionalPart = 0;
 
   /**
-   * Builds this object with a numerator and denominator.
+   * Builds this object with two parts: integer part (left of decimal)
+   * and fractional part (right of decimal).
    *
-   * @param integer $numerator          
-   * @param integer $denominator          
+   * @param integer $integerPart          
+   * @param integer $fractionalPart             
    */
-  function __construct($numerator = 0, $denominator = 1) {
-    $this->setInput($numerator, $denominator);
+  function __construct($integerPart, $fractionalPart) {
+    $this->setInput($integerPart, $fractionalPart);
     $this->_convert();
   }
-
+  
   /**
    * Returns the string representation of this object.
    *
@@ -76,7 +77,7 @@ final class ChineseFraction {
   function __toString() {
     return $this->getChinese();
   }
-  
+
   /**
    * Returns the input for this object.
    *
@@ -87,15 +88,16 @@ final class ChineseFraction {
   }
 
   /**
-   * Sets the input for this object.
+   * Sets the the inputs for this object: integer part (left of decimal)
+   * and fractional part (right of decimal).
    *
-   * @param integer $numerator          
-   * @param integer $denominator          
-   * @return \ChineseFraction $this
+   * @param integer $integerPart          
+   * @param integer $fractionalPart            
+   * @return \ChineseDecimal $this
    */
-  public function setInput($numerator, $denominator) {
-    $this->_numerator = (int) $numerator;
-    $this->_denominator = (int) $denominator;
+  public function setInput($integerPart, $fractionalPart) {
+    $this->_integerPart = (int) $integerPart;
+    $this->_fractionalPart = (int) $fractionalPart;    
     return $this;
   }
 
@@ -116,32 +118,23 @@ final class ChineseFraction {
   public function getChinese() {
     return $this->_chinese;
   }
-    
-  // converts to fraction in Chinese and pinyin
+  
+  // converts to percent in chinese and pinyin
   private function _convert() {
     
-    $n = $this->_numerator;
-    $d = $this->_denominator;
+    $i = $this->_integerPart;
+    $f = $this->_fractionalPart;
     
-    try {
-      if ($d === 0) {
-        throw new Exception("PFFY SAYS :: Cannot divide by zero. Setting denominator to 1.");
-      }
-    } catch (Exception $ex) {
-      echo $ex->getMessage();
-      $d = 1;
-    }
+    $left = new ChineseInteger(abs($i));
+    $right = new ChineseDigits($f);    
     
-    $top = new ChineseInteger(abs($n));
-    $btm = new ChineseInteger(abs($d));
+    $this->_chinese = $left->getChinese() . self::JTZ_DIAN . $right->getChinese();
+    $this->_pinyin = $left->getChinese() . " " . self::PINYIN_DIAN . " " . $right->getPinyin();
     
-    $this->_chinese = $btm->getChinese() . self::JTZ_FENZHI . $top->getChinese();
-    $this->_pinyin = $btm->getPinyin() . " " . self::PINYIN_FENZHI . " " . $top->getPinyin();
-    
-    if ($n < 0) {
+    if ($i < 0) {
       $this->_chinese = self::JTZ_FU . $this->_chinese;
       $this->_pinyin = self::PINYIN_FU . " " . $this->_pinyin;
-    }
+    }    
   }
 
 }

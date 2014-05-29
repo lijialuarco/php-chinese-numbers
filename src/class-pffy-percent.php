@@ -118,7 +118,7 @@ final class ChinesePercent {
     
     $n = $this->_numerator;
     
-    $top = new ChineseInteger($n);
+    $top = new ChineseInteger(abs($n));
     
     $this->_chinese = self::JTZ_BAIFENZHI . $top->getChinese();
     $this->_pinyin = self::PINYIN_BAIFENZHI . " " . $top->getPinyin();
