@@ -31,6 +31,7 @@ The possibilities for this [open source](#license) stack include (but are not li
 
 ## CLASSES AND DEPENDENCIES
 
+```
 + Abacus
 + Digits
 
@@ -44,7 +45,19 @@ The possibilities for this [open source](#license) stack include (but are not li
 + ChinesePercent
   - ChineseInteger
 
++ ChineseMoney
+  - ChineseInteger
+
++ ChineseDecimal
+  - ChineseInteger
+
 + ChineseNumber (wrapper class)
+  - ChineseMoney
+  - ChineseInteger
+  - ChineseDecimal
+  - ChineseFraction
+  - ChinesePercent
+```
 
 ## DEMO 5
 
