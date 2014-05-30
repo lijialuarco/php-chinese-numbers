@@ -46,7 +46,31 @@ The possibilities for this [open source](#license) stack include (but are not li
 
 + ChineseNumber (wrapper class)
 
-## DEMO
+## DEMO 5
+
+```
+$str = "8/9";
+
+echo $c = new ChineseNumber($str);
+echo nl2br(PHP_EOL);
+
+echo $c->getPinyin();
+echo nl2br(PHP_EOL);
+
+echo $c->getChinese();
+echo nl2br(PHP_EOL);
+
+echo $c->getTypes();
+echo nl2br(PHP_EOL);
+
+echo "<pre>";
+print_r($c->getResults());
+echo nl2br(PHP_EOL);
+echo "</pre>";
+
+```
+
+## DEMO 1
 
 ```php
 
