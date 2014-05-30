@@ -52,21 +52,16 @@ The possibilities for this [open source](#license) stack include (but are not li
 $str = "8/9";
 
 echo $c = new ChineseNumber($str);
-echo nl2br(PHP_EOL);
 
 echo $c->getPinyin();
-echo nl2br(PHP_EOL);
 
 echo $c->getChinese();
-echo nl2br(PHP_EOL);
 
+// returns regex types as a string
 echo $c->getTypes();
-echo nl2br(PHP_EOL);
 
-echo "<pre>";
+// array of results
 print_r($c->getResults());
-echo nl2br(PHP_EOL);
-echo "</pre>";
 
 ```
 
@@ -75,27 +70,22 @@ echo "</pre>";
 // integers
 // 八十八
 echo $c = new ChineseNumber("88");
-echo nl2br(PHP_EOL);
 
 // fractions
 // 九分之八
 echo $c = new ChineseNumber("8/9");
-echo nl2br(PHP_EOL);
 
 // percent
 // 百分之八十五
 echo $c = new ChineseNumber("85%");
-echo nl2br(PHP_EOL);
 
 // decimal
 // 八十八点五五
 echo $c = new ChineseNumber("88.55");
-echo nl2br(PHP_EOL);
 
 // money
 // 八块五毛五分美元
 echo $c = new ChineseNumber("$8.55");
-echo nl2br(PHP_EOL);
 ```
 
 
