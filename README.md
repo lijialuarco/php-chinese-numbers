@@ -48,8 +48,7 @@ The possibilities for this [open source](#license) stack include (but are not li
 
 ## DEMO 5
 
-```
-<?php
+```php
 $str = "8/9";
 
 echo $c = new ChineseNumber($str);
@@ -68,13 +67,11 @@ echo "<pre>";
 print_r($c->getResults());
 echo nl2br(PHP_EOL);
 echo "</pre>";
-?>
 
 ```
 
 ## DEMO 3
-```
-<?php
+```php
 // integers
 // 八十八
 echo $c = new ChineseNumber("88");
@@ -99,7 +96,6 @@ echo nl2br(PHP_EOL);
 // 八块五毛五分美元
 echo $c = new ChineseNumber("$8.55");
 echo nl2br(PHP_EOL);
-?>
 ```
 
 
