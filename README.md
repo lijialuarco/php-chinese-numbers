@@ -15,9 +15,9 @@ Helpful Resources:
 
 ## CHINESE NUMBER CONVERSION
 
-Expression numbers in any language helps you communicate useful information. 
+Expressing numbers in any language helps you communicate useful information. 
 
-If you are developing Chinese lexical knowledgebase or search engine (for example), you may want to complement text search results with number conversion and translation.
+If you are developing Chinese lexical knowledgebase or search engine with Chinese search results(for example), you may want to complement text search results with number conversion and translation. Feel free to use this as part of your solution.
 
 The possibilities for this [open source](#license) stack include (but are not limited to):
 
